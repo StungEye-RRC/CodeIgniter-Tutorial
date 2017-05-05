@@ -21,5 +21,20 @@ class Blog_model extends CI_Model {
     $query = $this->db->get_where('blogs', array('permalink' => $permalink));
     return $query->row_array();
   }
+
+  public function create_new_post()
+  {
+      $this->load->helper('url');
+
+      $permalink = url_title($this->input->post('title'), 'dash', TRUE);
+
+      $data = array(
+          'title'     => $this->input->post('title'),
+          'permalink' => $permalink,
+          'content'   => $this->input->post('content')
+      );
+
+      return $this->db->insert('blogs', $data);
+  }
 }
 ?>

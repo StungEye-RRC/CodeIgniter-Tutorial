@@ -32,4 +32,29 @@ class Blog extends CI_Controller {
 		$this->load->view('blog/show', $data);
 		$this->load->view('layouts/footer', $data);
 	}
+
+	public function create()
+	{
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+
+		$data['title'] = "Create New Post";
+		$data['blog']['title'] = $this->input->post('title');
+		$data['blog']['content'] = $this->input->post('content');
+
+		$this->form_validation->set_rules('title', 'Title', 'required');
+    $this->form_validation->set_rules('content', 'Content', 'required');
+
+    if ($this->form_validation->run() === FALSE)
+    {
+	    $this->load->view('layouts/header', $data);
+      $this->load->view('blog/create', $data);
+	    $this->load->view('layouts/footer', $data);
+    }
+    else
+    {
+			$this->blog_model->create_new_post();
+			redirect(site_url());
+    }
+	}
 }

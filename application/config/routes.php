@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'blog';
 
+$route['blog/create'] = 'blog/create';
 $route['blog/(:any)'] = 'blog/show/$1';
 
 $route['404_override'] = '';
