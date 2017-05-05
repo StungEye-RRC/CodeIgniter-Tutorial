@@ -14,7 +14,9 @@ class Blog extends CI_Controller {
 	{
 		$data['title'] = 'All Blog Posts';
 		$data['blogs'] = $this->blog_model->all_posts();
+		$this->load->view('layouts/header', $data);
 		$this->load->view('blog/index', $data);
+		$this->load->view('layouts/footer', $data);
 	}
 
 	public function show($permalink) // This $id is the $1 from the route
@@ -26,6 +28,8 @@ class Blog extends CI_Controller {
       show_404();
     }
 
+		$this->load->view('layouts/header', $data);
 		$this->load->view('blog/show', $data);
+		$this->load->view('layouts/footer', $data);
 	}
 }
