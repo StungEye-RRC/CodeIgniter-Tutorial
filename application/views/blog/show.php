@@ -1,4 +1,4 @@
-<h3><?= $blog['title'] ?></h3>
+<h3><?= html_escape($blog['title']) ?></h3>
 <div>
-  <?= $blog['content'] ?>
+  <?= html_escape($blog['content']) ?>
 </div>

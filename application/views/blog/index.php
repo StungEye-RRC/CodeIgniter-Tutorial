@@ -6,9 +6,9 @@
 
 
 <?php foreach($blogs as $blog): ?>
-  <h3><?= $blog['title'] ?></h3>
+  <h3><?= html_escape($blog['title']) ?></h3>
   <div>
-    <?= $blog['content'] ?>
+    <?= html_escape($blog['content']) ?>
     <p><a href="<?= site_url('/blog/' . $blog['permalink']) ?>">View blog post</a>
   </div>
 <?php endforeach ?>
