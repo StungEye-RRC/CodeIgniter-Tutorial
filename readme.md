@@ -7,24 +7,24 @@ Steps followed by this tutorial:
 * Added the development database details to the database config file.
 * Created a blogs table using phpmyadmin:
 
-    CREATE TABLE blogs (
-      id int(11) NOT NULL AUTO_INCREMENT,
-      title varchar(255) NOT NULL,
-      permalink varchar(255) NOT NULL,
-      content text NOT NULL,
-      PRIMARY KEY (id),
-      KEY permalink (permalink)
-    );
+      CREATE TABLE blogs (
+        id int(11) NOT NULL AUTO_INCREMENT,
+        title varchar(255) NOT NULL,
+        permalink varchar(255) NOT NULL,
+        content text NOT NULL,
+        PRIMARY KEY (id),
+        KEY permalink (permalink)
+      );
 
 * Renamed the Welcome controller to Blog and adjusted the routes.
 * Created a Blog model:
 
-    class News_model extends CI_Model {
-        public function __construct()
-        {
-                $this->load->database();
-        }
-    }
+      class News_model extends CI_Model {
+          public function __construct()
+          {
+             $this->load->database();
+          }
+      }
 
 * Built the blog index functionality. (Model, controller, views, routes)
 * Built the blog show (by id) functionality. (Model, controller, views, routes)
