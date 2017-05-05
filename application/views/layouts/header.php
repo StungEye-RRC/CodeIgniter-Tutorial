@@ -7,7 +7,7 @@
     <title><?= $title ?></title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?= site_url('public/css/main.css') ?>">
+    <link rel="stylesheet" href="/public/css/main.css">
   </head>
   <body>
 
