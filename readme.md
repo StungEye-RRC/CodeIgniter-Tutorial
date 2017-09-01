@@ -29,6 +29,7 @@ Steps followed by this tutorial:
 * Built the blog index functionality. (Model, controller, views, routes)
 * Built the blog show (by id) functionality. (Model, controller, views, routes)
 * Built the blog show (by permalink) functionality.
-* Built the blog create functionality. (Model, controller, views, routes)
 * Added header and footer view partials (plus bootstrap).
 * Used an .htaccess file to remove the index.php from the site urls.
+* Built the blog create functionality. (Model, controller, views, routes)
+* Added [XSS (cross-site scripting attack)](https://en.wikipedia.org/wiki/Cross-site_scripting) protection to the blog views.
