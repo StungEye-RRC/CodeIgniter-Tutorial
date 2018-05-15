@@ -21,7 +21,8 @@ class Blog extends CI_Controller {
 
 	public function show($permalink) // This $id is the $1 from the route
 	{
-		$data['blog'] = $this->blog_model->by_permalink($permalink);
+    $data['blog'] = $this->blog_model->by_permalink($permalink);
+    $data['title'] = $data['blog']['title'];
 
 		if (empty($data['blog']))
     {
