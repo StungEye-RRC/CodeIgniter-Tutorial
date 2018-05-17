@@ -17,10 +17,23 @@ class Blog_model extends CI_Model {
     return $query->row_array();
   }
 
+  public function delete_by_id($id) {
+    $this->db->delete('blogs', ['id' => $id]);
+    // DELETE FROM blogs WHERE id = #;
+  }
+
   public function by_permalink($permalink) {
     $query = $this->db->get_where('blogs', array('permalink' => $permalink));
+    // SELECT * FROM blogs WHERE permalink = 'another-post';
     return $query->row_array();
   }
+
+  public function by_id_and_permalink($id, $permalink) {
+    $query = $this->db->get_where('blogs', array('id' => $id, 'permalink' => $permalink));
+    // SELECT * FROM blogs WHERE permalink = 'another-post' AND id = 2;
+    return $query->row_array();
+  }
+
 
   public function create_new_post()
   {

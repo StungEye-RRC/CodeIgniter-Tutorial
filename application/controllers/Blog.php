@@ -19,9 +19,10 @@ class Blog extends CI_Controller {
 		$this->load->view('layouts/footer', $data);
 	}
 
-	public function show($permalink) // This $id is the $1 from the route
+	public function show($id, $permalink) // This $id is the $1 from the route
 	{
-    $data['blog'] = $this->blog_model->by_permalink($permalink);
+		$this->load->helper('form');
+    $data['blog'] = $this->blog_model->by_id_and_permalink($id, $permalink);
 
 		if (empty($data['blog'])) {
       show_404();
@@ -32,10 +33,30 @@ class Blog extends CI_Controller {
 		$this->load->view('layouts/header', $data);
 		$this->load->view('blog/show', $data);
 		$this->load->view('layouts/footer', $data);
-	}
+  }
+  
+  public function delete_blog($id) {
+    $this->blog_model->delete_by_id($id);
+    redirect(site_url());
+  }
 
-	public function create()
+  // Displays a form for creating a new blog post.
+	public function new_blog()
 	{
+		$this->load->helper('form');
+
+    $data['title'] = "Create New Post";
+    $data['blog']['title'] = '';
+    $data['blog']['content'] = '';
+    
+    $this->load->view('layouts/header', $data);
+    $this->load->view('blog/create', $data);
+    $this->load->view('layouts/footer', $data);
+  }
+  
+
+  // Creates the new POSTed blog post
+  public function create() {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
@@ -57,5 +78,5 @@ class Blog extends CI_Controller {
 			$this->blog_model->create_new_post();
 			redirect(site_url());
     }
-	}
+  }
 }

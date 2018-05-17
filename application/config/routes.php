@@ -51,8 +51,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'blog';
 
-$route['blog/create'] = 'blog/create';
-$route['blog/(:any)'] = 'blog/show/$1';
+$route['blogs'] = 'blog/index';
+$route['blogs/new'] = 'blog/new_blog';
+$route['blogs/create']['POST'] = 'blog/create';
+$route['blogs/(:num)/delete']['POST'] = 'blog/delete_blog/$1';
+$route['blogs/(:num)/(:any)'] = 'blog/show/$1/$2';
+//$route['blogs/(:num)']['POST'] = 'blog/update/$1';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+// REST Representational State Transfer
+// RESTfull Routing
+// NAME   - VERB - URL                - Description
+// index  - GET  - /blogs             - Shows the collection (all blogs)
+// show   - GET  - /blogs/(:num)      - Show an individual member. (One blog by id)
+// new    - GET  - /blogs/new         - Form for creating new member. (New blog form)
+// create - POST - /blogs/create      - Receives POSTed data and creates new member in db.
+// edit   - GET  - /blogs/(:num)/edit - Form for editing a individual member. (Edit a blog by id)
+// update - POST - /blogs/(:num)      - Receives POSTed data and updates member. (Update blog by id)
+// delete - POST - /blogs/(:num)/delete - Deletes an individual member. (Delete blog by id)
+
+
+// /blogs/12/comments/3  
+// /blogs/(:num)/comments/(:num)
+
+

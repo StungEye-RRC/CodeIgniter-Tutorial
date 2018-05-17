@@ -3,7 +3,7 @@
 
 <?= validation_errors('<div class="alert alert-danger">', '</div>') ?>
 
-<?= form_open('blog/create') ?>
+<?= form_open('blogs/create') ?>
     <label for="title">Title</label>
     <input class="form-control" type="input" name="title" value="<?= $blog['title'] ?>" /><br />
 
